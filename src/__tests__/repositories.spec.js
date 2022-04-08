@@ -86,7 +86,7 @@ describe("Repositories", () => {
       });
 
     await request(app)
-    .post(`/repositories/${repository.body.id}/like`);
+      .post(`/repositories/${repository.body.id}/likes`);
 
     const response = await request(app)
       .put(`/repositories/${repository.body.id}`)
@@ -95,7 +95,7 @@ describe("Repositories", () => {
       });
 
     expect(response.body).toMatchObject({
-      likes: 1
+      likes: 0
     });
   });
 
